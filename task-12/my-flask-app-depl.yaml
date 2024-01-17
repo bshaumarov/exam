@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-flask-app
+  name: my-flask-app
+  namespace: exam-29
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-flask-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-flask-app
+    spec:
+      containers:
+      - image: sayyod1981/app-flask:v1
+        name: app-flask
+        env:
+        - name: environment
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: environment
+        - name: grpc_port
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: grpc_port 
+        - name: log_level
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: log_level 
+        - name: log_level
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: log_level 
+        - name: DB_URI 
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DB_URI
+        - name: POD_IP 
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        ports:
+        - containerPort: 5000
+        resources: {}
+status: {}
