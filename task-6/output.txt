@@ -1,0 +1,1 @@
+{"domain":"fl-app-svc-internal","endpoint":"/check-ingress","full_path:":"fl-app-svc-internal/check-ingress"}
