@@ -1,7 +1,0 @@
-NAME                      DESIRED   CURRENT   READY   AGE
-fl-app-54886d6574         1         1         1       81m
-frontend-app-596f6b9c58   0         0         0       53m
-frontend-app-5cd5589c7b   0         0         0       61m
-frontend-app-65d687d995   1         1         1       49m
-my-flask-app-586c4c47bf   0         0         0       20m
-my-flask-app-dd467c974    3         3         3       11m
