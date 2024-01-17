@@ -1,0 +1,3 @@
+NAME              TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+fl-app-svc-node   NodePort   10.233.15.228   <none>        80:32700/TCP   81s   app=fl-app
+{"env":"staging","http_port":"80","string":"Welcome to DevOps Course!"}

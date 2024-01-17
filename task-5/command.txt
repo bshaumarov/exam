@@ -1,0 +1,2 @@
+kubectl expose deploy fl-app --port=80 --target-port=5000 --type NodePort --name fl-app-svc-node -n exam-29
+curl 135.181.204.192:32700
