@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-flask-app
+  name: my-flask-app
+  namespace: exam-29
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-flask-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-flask-app
+    spec:
+      containers:
+      - image: sayyod1981/app-flask:v1
+        name: app-flask
+        resources: 
+         limits:
+          memory: "128Mi"
+          cpu: "200m"
+         requests:
+          memory: "64Mi"
+          cpu: "100m"
+        env:
+        - name: environment
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: environment
+        - name: grpc_port
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: grpc_port 
+        - name: log_level
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: log_level 
+        - name: log_level
+          valueFrom:
+            configMapKeyRef:
+              name: info
+              key: log_level 
+        - name: DB_URI 
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DB_URI
+        - name: POD_IP 
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: CPU 
+          valueFrom:
+            resourceFieldRef:
+              containerName: app-flask
+              resource: requests.cpu  
+        - name: MEMORY
+          valueFrom:
+            resourceFieldRef:
+              containerName: app-flask
+              resource: requests.memory  
+        ports:
+        - containerPort: 5000
