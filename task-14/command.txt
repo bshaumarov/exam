@@ -1,0 +1,1 @@
+kubectl scale deploy/my-flask-app --replicas=3 -n exam-29
