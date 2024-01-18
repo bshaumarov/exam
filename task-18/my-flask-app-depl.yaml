@@ -29,26 +29,21 @@ spec:
           memory: "64Mi"
           cpu: "100m"
         env:
-        - name: environment
+        - name: ENVIRONMENT
           valueFrom:
             configMapKeyRef:
               name: info
-              key: environment
-        - name: grpc_port
+              key: ENVIRONMENT
+        - name: GRPC_PORT
           valueFrom:
             configMapKeyRef:
               name: info
-              key: grpc_port 
-        - name: log_level
+              key: GRPC_PORT 
+        - name: LOG_LEVEL
           valueFrom:
             configMapKeyRef:
               name: info
-              key: log_level 
-        - name: log_level
-          valueFrom:
-            configMapKeyRef:
-              name: info
-              key: log_level 
+              key: LOG_LEVEL 
         - name: DB_URI 
           valueFrom:
             secretKeyRef:
