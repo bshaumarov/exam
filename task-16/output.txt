@@ -1,2 +1,2 @@
-NAME                        ENDPOINTS                                                 AGE
-my-flask-app-svc-internal   10.233.66.141:5000,10.233.67.130:5000,10.233.68.97:5000   10m
+NAME                        
+my-flask-app-svc-internal   
